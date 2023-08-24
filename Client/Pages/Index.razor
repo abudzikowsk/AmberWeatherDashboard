@@ -1,0 +1,37 @@
+﻿@page "/temperature"
+@using AmberWeatherDashboard.Shared.Models
+@inject HttpClient Http
+
+<PageTitle>Temperature Chart</PageTitle>
+
+<h1>Temperature Chart</h1>
+
+@if (weatherData == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+<SfChart Title="Temperature">
+    <ChartPrimaryXAxis Title="Date" Interval="1" IntervalType="IntervalType.Days" ValueType="Syncfusion.Blazor.Charts.ValueType.DateTimeCategory">
+    </ChartPrimaryXAxis>
+    <ChartPrimaryYAxis Title="Temperature in °C"></ChartPrimaryYAxis>
+    <ChartTooltipSettings Enable="true" Header="Temperature" Format="<b>${point.x} : ${point.y}</b>"></ChartTooltipSettings>
+    <ChartSeriesCollection>
+        <ChartSeries DataSource="@weatherData" XName="Date" YName="Temperature" Type="ChartSeriesType.Line">
+            <ChartMarker>
+                <ChartDataLabel Visible="true"></ChartDataLabel>
+            </ChartMarker>
+        </ChartSeries>
+    </ChartSeriesCollection>
+</SfChart>
+}
+
+@code {
+    WeatherDataResponse[] weatherData;
+
+    protected override async Task OnInitializedAsync()
+    {
+        weatherData = await Http.GetFromJsonAsync<WeatherDataResponse[]>("api/Weather");
+    }
+}

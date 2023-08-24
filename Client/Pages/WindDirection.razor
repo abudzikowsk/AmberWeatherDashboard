@@ -1,0 +1,30 @@
+﻿@page "/wind-direction"
+@using AmberWeatherDashboard.Shared.Models
+@inject HttpClient Http
+
+<PageTitle>Wind Direction Grid</PageTitle>
+
+<h1>Wind Direction Grid</h1>
+
+@if (weatherData == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+<SfGrid DataSource="@weatherData">
+    <GridColumns>
+        <GridColumn Field=@nameof(WeatherDataResponse.Date) HeaderText="Date" TextAlign="TextAlign.Center"></GridColumn>
+        <GridColumn Field=@nameof(WeatherDataResponse.WindDirection) HeaderText="Wind Direction" TextAlign="TextAlign.Center"></GridColumn>
+    </GridColumns>
+</SfGrid>
+}
+
+@code {
+    WeatherDataResponse[] weatherData;
+
+    protected override async Task OnInitializedAsync()
+    {
+        weatherData = await Http.GetFromJsonAsync<WeatherDataResponse[]>("api/Weather");
+    }
+}
