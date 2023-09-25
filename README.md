@@ -2,6 +2,15 @@
 
 The Amber Weather Dashboard is an application built for amber collectors in Gdynia, designed to help them track and monitor weather conditions that can impact their collection activities. This project allows users to access a user-friendly dashboard presenting essential weather data, including wind speed, wind direction, and temperature. The data is regularly updated on an hourly basis and is stored for a month, ensuring users have access to historical weather information.
 
+## App Screenshots
+
+Here are some screenshots of Amber Weather Dashboard in action:
+
+![Main Page](./images/IMG_7571.png)
+![Main Page](./images/IMG_5007.png)
+![Main Page](./images/IMG_8954.png)
+![Job](./images/IMG_2542.png)
+
 ## Features
 
 - **User-Friendly Dashboard:** The application provides an intuitive dashboard interface with separate tabs for wind speed, wind direction, and temperature data.
