@@ -4,8 +4,6 @@ The Amber Weather Dashboard is an application built for amber collectors in Gdyn
 
 ## App Screenshots
 
-Here are some screenshots of Amber Weather Dashboard in action:
-
 ![Main Page](./images/IMG_7571.png)
 ![Main Page](./images/IMG_5007.png)
 ![Main Page](./images/IMG_8954.png)
